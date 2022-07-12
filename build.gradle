@@ -1,0 +1,41 @@
+plugins {
+    id 'java'
+    id("com.github.johnrengelman.shadow") version "7.1.2"
+    id "org.openapi.generator" version "6.0.1"
+}
+
+jar.enabled = false
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    maven { url "https://jitpack.io" }
+}
+
+artifacts {
+    shadowJar;
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
+    implementation 'com.github.ludovicianul:pl4j:pretty-logger-1.9'
+    implementation 'com.google.code.gson:gson:2.9.0'
+    implementation 'org.java-websocket:Java-WebSocket:1.5.3'
+    implementation 'org.slf4j:slf4j-api:1.7.36'
+    implementation 'ch.qos.logback:logback-classic:1.2.11'
+    implementation group: 'com.google.api-client', name: 'google-api-client', version: '1.22.0'
+    implementation 'com.google.apis:google-api-services-oauth2:v2-rev20200213-1.32.1'
+    implementation 'org.mongodb:mongo-java-driver:3.12.11'
+    implementation 'info.picocli:picocli:4.6.3'
+    annotationProcessor 'info.picocli:picocli-codegen:4.6.3'
+    compileOnly 'org.projectlombok:lombok:1.18.24'
+    annotationProcessor 'org.projectlombok:lombok:1.18.24'
+    implementation group: 'org.reflections', name: 'reflections', version: '0.10.2'
+    implementation "com.github.victools:jsonschema-generator:4.25.0"
+    implementation 'com.networknt:json-schema-validator:1.0.70'
+}
+
+build.dependsOn(shadowJar);

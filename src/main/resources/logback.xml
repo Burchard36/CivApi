@@ -1,0 +1,19 @@
+<configuration>
+
+    <statusListener class="ch.qos.logback.core.status.NopStatusListener"/>
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <withJansi>true</withJansi>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>%d{HH:mm:ss.SSS} [%t] %marker %msg%n</pattern>
+        </encoder>
+    </appender>
+    <root level="info">
+        <appender-ref ref="STDOUT"/>
+    </root>
+
+    <logger name="com.github.victools.jsonschema.generator.impl.SchemaGenerationContextImpl" level="OFF"/>
+    <logger name="com.networknt.schema.PropertiesValidator" level="OFF"/>
+    <logger name="com.networknt.schema.TypeValidator" level="OFF"/>
+    <logger name="com.networknt.schema.AdditionalPropertiesValidator" level="OFF"/>
+
+</configuration>
